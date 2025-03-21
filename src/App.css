@@ -1,0 +1,122 @@
+:root {
+  --primary-dark: #121212;
+  --secondary-dark: #1e1e1e;
+  --accent-dark: #bb86fc;
+  --text-dark: #ffffff;
+  
+  --primary-light: #f5f5f5;
+  --secondary-light: #e0e0e0;
+  --accent-light: #6200ee;
+  --text-light: #121212;
+  
+  --primary-neon: #0a0a0a;
+  --secondary-neon: #151515;
+  --accent-neon: #00ff9d;
+  --text-neon: #ffffff;
+  
+  --transition: all 0.4s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Theme Styles */
+.theme-dark {
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --accent: var(--accent-dark);
+  --text: var(--text-dark);
+}
+
+.theme-light {
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --accent: var(--accent-light);
+  --text: var(--text-light);
+}
+
+.theme-neon {
+  --primary: var(--primary-neon);
+  --secondary: var(--secondary-neon);
+  --accent: var(--accent-neon);
+  --text: var(--text-neon);
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text);
+  transition: var(--transition);
+}
+
+.app {
+  position: relative;
+  overflow: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 80px 10%;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  background: var(--accent);
+  bottom: -10px;
+  left: 0;
+  transition: var(--transition);
+  animation: titleLine 1.5s infinite alternate;
+}
+
+@keyframes titleLine {
+  from { width: 0; }
+  to { width: 60%; }
+}
+
+.btn {
+  padding: 12px 25px;
+  background: var(--accent);
+  color: var(--primary);
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.btn:hover::before {
+  width: 100%;
+}
